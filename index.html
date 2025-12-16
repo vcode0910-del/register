@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osis Cc Smandalas - E-Sports</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts Gaming -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Background Animation (Efek Aura) -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="hex-loader"></div>
+            <h2 class="glitch" data-text="LOADING SYSTEM...">LOADING SYSTEM...</h2>
+            <p>Osis Cc Smandalas Arena</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar slide-down">
+        <div class="logo">
+            <i class="fas fa-dragon logo-icon"></i> 
+            <span class="logo-text">OSIS<span class="highlight">CC</span></span>
+        </div>
+        <div class="nav-controls">
+            <!-- Tombol tetap dipertahankan -->
+            <button id="theme-toggle" class="btn-icon neon-hover" title="Ganti Mode">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button id="login-btn" class="btn-cyber-border">LOGIN ADMIN</button>
+            <button id="logout-btn" class="btn-cyber-border hidden">LOGOUT</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Halaman Utama -->
+        <main id="main-content">
+            <header class="hero">
+                <h1 class="animate-zoom gradient-text">MOBILE LEGENDS</h1>
+                <h2 class="subtitle animate-fade delay-1">CLASS TOURNAMENT</h2>
+                <div class="hero-decoration"></div>
+            </header>
+
+            <!-- Form Pendaftaran -->
+            <section class="card cyber-card animate-slide-up delay-2" id="registration-section">
+                <div class="card-header-styled">
+                    <i class="fas fa-gamepad"></i> REGISTRASI TIM
+                </div>
+                
+                <form id="lombaForm">
+                    <div class="form-group">
+                        <label>KELAS (SQUAD)</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-users input-icon"></i>
+                            <select id="namaTim" class="input-cyber" required>
+                                <option value="" disabled selected>-- PILIH KELAS --</option>
+                                <option value="X A">X A</option>
+                                <option value="X B">X B</option>
+                                <option value="X C">X C</option>
+                                <option value="X D">X D</option>
+                                <option value="XI IPA">XI IPA</option>
+                                <option value="XI IPA 2">XI IPA 2</option>
+                                <option value="XI IPS">XI IPS</option>
+                                <option value="XII IPA">XII IPA</option>
+                                <option value="XII IPS">XII IPS</option>
+                                <option value="XII IPS 2">XII IPS 2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>KAPTEN TIM</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user-astronaut input-icon"></i>
+                            <input type="text" id="kapten" class="input-cyber" placeholder="Nickname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>WHATSAPP</label>
+                        <div class="input-wrapper">
+                            <i class="fab fa-whatsapp input-icon"></i>
+                            <input type="number" id="whatsapp" class="input-cyber" placeholder="08xxxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="players-section">
+                        <label>ROSTER PEMAIN</label>
+                        <div id="players-container" class="grid-players"></div>
+                        <button type="button" id="add-player-btn" class="btn-secondary-cyber">
+                            <i class="fas fa-plus"></i> TAMBAH SLOT
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn-primary-cyber glow-effect">DAFTAR SEKARANG <i class="fas fa-rocket"></i></button>
+                </form>
+            </section>
+
+            <!-- Social Media (Button Full) -->
+            <section class="contact-section animate-slide-up delay-3">
+                <div class="glass-panel">
+                    <h3>HUBUNGI ADMIN</h3>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/6285129226758" target="_blank" class="btn-social wa">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://instagram.com/osiscc_smandalas" target="_blank" class="btn-social ig">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hasil Jadwal -->
+            <section id="schedule-result" class="card cyber-card hidden animate-zoom">
+                <div class="success-content">
+                    <div class="success-icon-box">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>REGISTRASI SUKSES</h2>
+                    <p>Persiapkan timmu untuk pertempuran.</p>
+                    
+                    <div class="match-info cyber-border">
+                        <h3>JADWAL PERTANDINGAN</h3>
+                        <div id="dynamic-schedule-content"></div>
+                    </div>
+                    
+                    <button id="back-home-btn" class="btn-outline-cyber">KEMBALI KE LOBBY</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- ADMIN PANEL -->
+        <section id="admin-panel" class="hidden animate-slide-up">
+            <div class="admin-dashboard">
+                <div class="admin-header-strip">
+                    <h2><i class="fas fa-shield-alt"></i> ADMIN COMMAND CENTER</h2>
+                </div>
+
+                <div class="admin-layout">
+                    <!-- Tools -->
+                    <div class="admin-sidebar glass-panel">
+                        <h3>CONTROLS</h3>
+                        
+                        <input type="file" id="schedule-upload" accept="image/*" class="hidden-input">
+                        <label for="schedule-upload" class="btn-tool blue">
+                            <i class="fas fa-upload"></i> Pilih Bracket
+                        </label>
+                        
+                        <button onclick="uploadSchedule()" class="btn-tool green">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload
+                        </button>
+                        
+                        <button onclick="clearSchedule()" class="btn-tool red">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+
+                        <div class="admin-stat">
+                            <span id="total-teams-badge">0</span> Tim Terdaftar
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="admin-content glass-panel">
+                        <div class="table-responsive">
+                            <table id="adminTable" class="cyber-table">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>TEAM</th>
+                                        <th>CAPT</th>
+                                        <th>CONTACT</th>
+                                        <th>ROSTER</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content cyber-modal animate-zoom">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-fingerprint"></i> ADMIN ACCESS</h2>
+            <form id="loginForm">
+                <div class="input-wrapper">
+                    <input type="text" id="username" class="input-cyber" placeholder="Username" required>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="password" class="input-cyber" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary-cyber full-width">UNLOCK</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="cyber-toast"><i class="fas fa-bell"></i> <span>Notifikasi</span></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
